@@ -1,0 +1,19 @@
+{
+  "name": "ecommerce-core-engine",
+  "version": "1.0.0",
+  "description": "Типізоване ядро системи інтернет-магазину (E-Commerce Core Engine) — практична робота №2, Варіант 1 (Електроніка та гаджети)",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": ["typescript", "ecommerce", "nestjs-core"],
+  "author": "Ганна",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "tsx": "^4.19.2",
+    "@types/node": "^22.10.2"
+  }
+}
