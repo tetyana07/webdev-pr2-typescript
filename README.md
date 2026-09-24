@@ -18,24 +18,6 @@
 | specs | кортеж [cpu: string, ramGb: number] |
 | DeliveryMethod | 'courier' \| 'post_locker' \| 'store_pickup' |
 
-## Структура проєкту
-
-ecommerce-core/
-├── src/
-│   ├── types/
-│   │   ├── product.ts      # EntityId, BaseProduct, Product, DeviceSpecs
-│   │   ├── order.ts        # OrderStatus, DeliveryMethod, CartItem, Order
-│   │   └── payment.ts      # CreditCardPayment, CashOnDeliveryPayment, OnlineServicePayment
-│   ├── services/
-│   │   ├── catalog.ts      # createProduct, calculateLineTotal
-│   │   ├── order.ts        # updateOrderStatus
-│   │   ├── validation.ts   # validateCustomerInput
-│   │   └── payment.ts      # isCreditCardPayment, maskCardNumber, processPayment
-│   └── index.ts            # точка входу, демонстрація роботи системи
-├── package.json
-├── tsconfig.json
-└── README.md
-
 ## Технічне забезпечення
 
 - Node.js 18+ (LTS), npm
@@ -85,8 +67,31 @@ npm start
 
 
 
+## Скріншоти роботи програми
+
+### Успішна перевірка типів (`npm run typecheck`)
+
+Скриншот демонструє відсутність помилок компіляції у суворому режимі TypeScript.
+
+![Успішна перевірка типів без помилок](./media/screenshot-1.png)
+
+### Запуск програми (`npm start`)
+
+Скриншот 1 — каталог товарів, формування кошика та створення замовлення:
+
+![Каталог, кошик та створення замовлення](.//media/screenshot-2.png)
+
+Скриншот 2 — зміна статусів замовлення та процесинг оплати (картка, готівка, онлайн-сервіс):
+
+![Зміна статусів та процесинг оплати](.//media/screenshot-3.png)
+
+Скриншот 3 — демонстрація обробки некоректних вхідних даних (очікувані помилки):
+
+![Обробка некоректних даних](./screenshots//media/screenshot-4.png)
+
+
 ## Контрольні питання — короткі тези для усного захисту
-[24.09.2026 17:01] Тетяна: 1. **TS vs JS:** TypeScript додає статичну типізацію поверх JS; під час компіляції (tsc) усі типи **стираються** (type erasure) — у виконуваному JS-коді анотацій типів немає.
+1. **TS vs JS:** TypeScript додає статичну типізацію поверх JS; під час компіляції (tsc) усі типи **стираються** (type erasure) — у виконуваному JS-коді анотацій типів немає.
 2. **`strict: true`:** вмикає весь пакет суворих перевірок одразу. noImplicitAny забороняє змінні без явного чи виведеного типу (запобігає «діркам» у типізації); strictNullChecks розглядає null/undefined як окремі типи, які потрібно явно обробляти.
 3. **`any` vs `unknown`:** any повністю вимикає перевірку типів (можна викликати будь-що). unknown — теж «будь-яке значення», але компілятор **забороняє** з ним операції, доки тип не звужено (typeof, in, type guard) — це безпечніше.
 4. **Tuple vs Array:** масив (number[]) — довільна кількість елементів одного типу; кортеж ([string, number]) — фіксована довжина, і кожна позиція має власний, наперед відомий тип.
