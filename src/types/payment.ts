@@ -1,7 +1,3 @@
-/**
- * Рівень 3. Способи оплати через розпізнавані об'єднання (Discriminated Unions).
- * Спільний дискримінатор — поле "type".
- */
 
 export interface CreditCardPayment {
   type: "card";
@@ -21,7 +17,6 @@ export interface OnlineServicePayment {
   transactionRef: string;
 }
 
-/** Юніон усіх підтримуваних способів оплати. */
 export type PaymentDetails =
   | CreditCardPayment
   | CashOnDeliveryPayment

@@ -1,8 +1,4 @@
-/**
- * Точка входу: демонстрація роботи типізованого ядра
- * системи інтернет-магазину (E-Commerce Core Engine).
- * Варіант 1: Електроніка та гаджети.
- */
+
 
 import type { CartItem } from "./types/order.js";
 import type { Order } from "./types/order.js";
@@ -19,7 +15,7 @@ function line(): void {
 
 console.log("=== СИСТЕМА ОБРОБКИ ЗАМОВЛЕНЬ (E-COMMERCE CORE) ===\n");
 
-// --- [Каталог товарів] ---------------------------------------------------
+
 console.log("[Каталог товарів]");
 
 const laptop = createProduct({
@@ -55,7 +51,7 @@ console.log(
   })\n`,
 );
 
-// --- [Формування кошика] --------------------------------------------------
+
 console.log("[Формування кошика]");
 
 const cartItems: CartItem[] = [
@@ -72,7 +68,7 @@ cartItems.forEach((item, index) => {
 
 console.log(`\nЗагальна вартість замовлення: ${orderTotal} грн\n`);
 
-// --- [Створення замовлення] -----------------------------------------------
+
 console.log("[Створення замовлення]");
 
 const customerEmail = validateCustomerInput("customer@example.com");
@@ -93,7 +89,7 @@ console.log(`Доставка: ${order.delivery}`);
 console.log(`Початковий статус: ${order.status}`);
 console.log(`Час створення: ${order.createdAt.toISOString()}\n`);
 
-// --- [Зміна життєвого циклу] -----------------------------------------------
+
 console.log("[Зміна життєвого циклу]");
 
 order = updateOrderStatus(order, "processing");
@@ -102,7 +98,7 @@ console.log(`Оновлення статусу: pending -> processing (Онов�
 order = updateOrderStatus(order, "shipped");
 console.log(`Оновлення статусу: processing -> shipped (Оновлено: ${order.updatedAt.toISOString()})\n`);
 
-// --- [Процесинг платежу] ----------------------------------------------------
+
 console.log("[Процесинг платежу]");
 
 const cardPayment: PaymentDetails = {
@@ -116,7 +112,7 @@ console.log(`Метод оплати: ${cardPayment.type}`);
 console.log(`Маскування: ${maskCardNumber(cardPayment)}`);
 console.log(`Результат: ${processPayment(cardPayment, orderTotal)}\n`);
 
-// --- Демонстрація інших способів оплати ------------------------------------
+
 line();
 console.log("Додаткова демонстрація інших способів оплати:\n");
 
@@ -134,7 +130,7 @@ console.log(`Метод оплати: ${onlinePayment.type}`);
 console.log(`Маскування: ${maskCardNumber(onlinePayment)}`);
 console.log(`Результат: ${processPayment(onlinePayment, orderTotal)}\n`);
 
-// --- Демонстрація обробки помилок ------------------------------------------
+
 line();
 console.log("Демонстрація обробки некоректних даних:\n");
 

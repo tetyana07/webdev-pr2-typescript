@@ -1,15 +1,7 @@
-/**
- * Рівень 1. Базові функції обробки каталогу товарів.
- */
-
 import type { CreateProductInput, Product } from "../types/product.js";
 
 let nextProductId = 1;
 
-/**
- * Створює сутність товару з суворою типізацією вхідних параметрів
- * та поверненого значення. id генерується автоматично.
- */
 export function createProduct(productData: CreateProductInput): Product {
   if (productData.price < 0) {
     throw new Error("Ціна товару не може бути від'ємною.");
@@ -23,12 +15,7 @@ export function createProduct(productData: CreateProductInput): Product {
   return product;
 }
 
-/**
- * Розраховує вартість позиції каталогу з урахуванням знижки.
- * @param price ціна за одиницю товару
- * @param quantity кількість одиниць
- * @param discountPercent відсоток знижки (дефолтний параметр = 0)
- */
+
 export function calculateLineTotal(
   price: number,
   quantity: number,
